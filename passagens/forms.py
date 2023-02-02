@@ -1,6 +1,7 @@
 from django import forms
 from tempus_dominus.widgets import DatePicker
 from datetime import datetime
+from .enum import *
 
 class PassagemForms(forms.Form):
     origem = forms.CharField(label='Origem', max_length=100)
@@ -8,3 +9,4 @@ class PassagemForms(forms.Form):
     data_ida = forms.DateField(label='Ida', widget=DatePicker())
     data_volta = forms.DateField(label='Volta', widget=DatePicker())
     data_pesquisa = forms.DateField(label='Data da pesquisa', disabled=True, initial=datetime.today)
+    classe_viagem = forms.ChoiceField(label='Classe do vôo', choices=TIPOS_DE_CLASSE)
