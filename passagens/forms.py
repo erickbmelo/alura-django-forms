@@ -10,3 +10,10 @@ class PassagemForms(forms.Form):
     data_volta = forms.DateField(label='Volta', widget=DatePicker())
     data_pesquisa = forms.DateField(label='Data da pesquisa', disabled=True, initial=datetime.today)
     classe_viagem = forms.ChoiceField(label='Classe do vôo', choices=TIPOS_DE_CLASSE)
+    informacoes = forms.CharField(
+        label='Informações extras',
+        max_length=200,
+        widget=forms.Textarea(),
+        required=False
+    )
+    email = forms.EmailField(label='E-mail', max_length=150)
